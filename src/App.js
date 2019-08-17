@@ -8,7 +8,6 @@ class App extends React.Component {
     isLoading: true,
     movies: []
   };
-
   getMovies = async () => {
     const {
       data: {
@@ -19,21 +18,19 @@ class App extends React.Component {
     );
     this.setState({ movies, isLoading: false });
   };
-
   componentDidMount() {
     this.getMovies();
   }
-
   render() {
     const { isLoading, movies } = this.state;
     return (
       <section className="container">
         {isLoading ? (
           <div className="loader">
-            <span className="loader__text">Loading..</span>
+            <span className="loader__text">Loading...</span>
           </div>
         ) : (
-          <div className="moives">
+          <div className="movies">
             {movies.map(movie => (
               <Movie
                 key={movie.id}
